@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Shalow copy impact of modification</h2>
+  <p>Original Object:</p>
+  <pre id="originalBefore"> </pre>
+  
+  <p>Copied Object: </p>
+  <pre id="copiedBefore"> </pre>
+  
+  <h2>After modification</h2>
+  <p>Original Object:</p>
+  <pre id="originalAfter"> </pre>
+  
+  <p>Copied Object:</p>
+  <pre id="copiedAfter"> </pre>
+  
+  <script>
+    const originalObject = {
+      name: "Onyeka",
+      age: 5
+    }
+    
+    const copiedObject = Object.assign({}, originalObject);
+    
+    document.getElementById("originalBefore").textContent = JSON.stringify(originalObject, null, 2);
+    
+    document.getElementById("copiedBefore").textContent = JSON.stringify(copiedObject, null, 2);
+    
+    copiedObject.age = 50;
+    
+    document.getElementById("originalAfter").textContent = JSON.stringify(originalObject, null, 2);
+    
+    document.getElementById("copiedAfter").textContent = JSON.stringify(copiedObject, null, 2);
+    
+  </script>
+</body>
+</html>
